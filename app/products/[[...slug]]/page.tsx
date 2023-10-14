@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
+import _ from "lodash";
 
 interface Props {
   params: { slug: string[] };
@@ -12,6 +14,16 @@ const ProductPage = ({
   return (
     <div>
       ProductPage {slug} {sortOrder}
+      <button
+        onClick={async () => {
+          const _ = (await import("lodash")).default;
+          const users = [{ name: "c" }, { name: "a" }, { name: "b" }];
+          const sortedArray = _.orderBy(users, ["name"]);
+          console.log(sortedArray);
+        }}
+      >
+        Show
+      </button>
     </div>
   );
 };
